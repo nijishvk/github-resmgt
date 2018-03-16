@@ -1,0 +1,235 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Reports'" [icon]="'fa-table'"></app-page-header>
+    <div class="row">
+        <div class="col col-xl-6 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    New Joiners
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>project</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let pullData of pullDatas">
+                            <th scope="row">{{ pullData.id }}</th>
+                            <td>{{ pullData.firstName}}</td>
+                            <td>{{ pullData.resName}}</td>
+                            <td>{{ pullData.status}}</td>
+                        </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+           
+            <div class="card mb-3">
+                <div class="card-header">Resigned</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Project</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>MFPS</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>UAF</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>Banking</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td colspan="2">Larry Bird</td>
+                            <td>Testing</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">Vacation plan</div>
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th># Days</th>
+                        <th>Project</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>10</td>
+                        <td>Fx Systems</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>4</td>
+                        <td>CID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry </td>
+                        <td>DDR</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col col-xl-6 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">Key-fob not recieved</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-inverse">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Project</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>Found Accounting</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>MFPS</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>King</td>
+                            <td>Dashboard</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">Revenue</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Billibale</th>
+                            <th>% Variation</th>
+                            <th>Revenue</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Private Banking</td>
+                            <td>1265</td>
+                            <td>32.3%</td>
+                            <td>$321.33</td>
+                        </tr>
+                        <tr>
+                            <td>MFPS</td>
+                            <td>261</td>
+                            <td>33.3%</td>
+                            <td>$234.12</td>
+                        </tr>
+                        <tr>
+                            <td>FxSystems</td>
+                            <td>665</td>
+                            <td>21.3%</td>
+                            <td>$16.34</td>
+                        </tr>
+                        <tr>
+                            <td>Found Accounting</td>
+                            <td>9516</td>
+                            <td>89.3%</td>
+                            <td>$1644.43</td>
+                        </tr>
+                        <tr>
+                            <td>Sonic</td>
+                            <td>23</td>
+                            <td>34.3%</td>
+                            <td>$23.52</td>
+                        </tr>
+                        <tr>
+                            <td>DDR</td>
+                            <td>421</td>
+                            <td>60.3%</td>
+                            <td>$724.32</td>
+                        </tr>
+                        <tr>
+                            <td>Production Support</td>
+                            <td>1233</td>
+                            <td>93.2%</td>
+                            <td>$126.34</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">New Requirements</div>
+                <table class="card-body table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Project</th>
+                        <th>Skill set</th>
+                        <th>Due Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>MFPS</td>
+                        <td>Angular JS</td>
+                        <td>April end</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Found Accounting</td>
+                        <td>Sql</td>
+                        <td>Feb</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">UAF</td>
+                        <td>May</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </div>
+</div>
