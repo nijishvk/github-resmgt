@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+    <h2 class="text-muted">PMO 360<sup>&deg;</sup> <small>Statistics Overview</small></h2>
     <div class="row">
         <div class="col-md-12">
             <ngb-carousel>
@@ -32,5 +32,304 @@
     <!--ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert-->
     <!--hr /-->
 <br/>
-   
+<div class="row">
+    <div class="col col-sm-6">
+        <div class="card mb-3">
+            <div class="card-header">
+                Attrition % (Overall)
+            </div>
+            <div class="card-body">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                </canvas>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+            </div>
+        </div>
+    </div>
+    <div class="col col-sm-6">
+        <div class="card mb-3">
+            <div class="card-header">
+                Location wise count
+            </div>
+            <div class="card-body">
+                <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-sm-6">
+        <div class="card mb-3">
+            <div class="card-header">
+                Buffer ratio
+            </div>
+            <div class="card-body">
+                <canvas baseChart [datasets]="barChartData1" [labels]="barChartLabels1" [options]="barChartOptions1" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                </canvas>
+            </div>
+           
+        </div>
+    </div>
+    <div class="col col-sm-6">
+        <div class="card mb-3">
+            <div class="card-header">
+                Project Type Billable count
+            </div>
+            <div class="card-body">
+                <canvas baseChart height="150px" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col col-xl-6 col-lg-12">
+           
+           
+            <div class="card mb-3">
+                <div class="card-header">Summary - Group Level</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>KPI/Matrics</th>
+                            <th>Overall</th>
+                            <th>Staff Aug</th>
+                            <th>COE</th>
+                            <th>Outcome</th>
+                            <th>SD</th>
+                            
+
+
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Attrition - General</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Attrition - Critical</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            
+                            <td>Buffer Ratio</td>
+                            <td>17%</td>
+                            <td>11%</td>
+                            <td>31%</td>
+                            <td>12%</td>
+                            <td>0%</td>
+                            
+                        </tr>
+                        <tr>
+                                				
+                            <th scope="row">4</th>
+                            <td >Onsite / Offshore Ratio (without buffers)</td>
+                            <td>1 : 4.91</td>
+                            
+                            <td>1 : 4.03</td>
+                            <td>1 : 6.27</td>
+                            <td>1 : 7.5</td>
+                            <td>100% Offshore</td>
+                        </tr>
+                        <tr>
+                                
+                            <th scope="row">4</th>
+                            <td >Onsite/Offshore Ratio (with Buffer)</td>
+                            <td>1:5.93</td>
+                            <td>1:4.6</td>
+                            <td>1:8.55</td>
+                            <td>1:8.5</td>
+                            <td>100% Offshore</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">Buffer Ratio</div>
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Project Type</th>
+                        <th>Billable #</th>
+                        <th>Buffer #</th>
+                        <th>Buffer %</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>IT</td>
+                        <td>185</td>
+                        <td>21</td>
+                        <td>11%</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>QA</td>
+                        <td>35</td>
+                        <td>15</td>
+                        <td>43%</td>
+                    </tr>
+                    <tr>
+                            <th scope="row">3</th>
+                            <td>Service Delivery</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                                <th scope="row">4</th>
+                                <td>Support</td>
+                                <td>45</td>
+                                <td>10</td>
+                                <td>22%</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+              <!-- /.col-lg-8 -->
+              <div class="card mb-3">
+                    <div class="card card-default mb-3">
+                        <div class="card-header">
+                             Longevity of consultants
+                        </div>
+                        <!-- /.card-header -->
+                        <app-notification></app-notification>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+        
+                </div>
+                <!-- /.col-lg-4 -->
+        </div>
+        
+            
+              
+            
+        <div class="col col-xl-6 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">% Women Employees	</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-inverse">
+                        <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th># Women</th>
+                            <th># Men</th>
+                            <th>Total</th>
+                            <th>% Women</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Jan 18</th>
+                            <td>80</td>
+                            <td>248</td>
+                            <td>328</td>
+                            <td>24%</td>
+                        </tr>
+                       
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">2017 - Location wise revenue</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>YYYY-MM	</th>
+                            <th>Onsite</th>
+                            <th>Offshore</th>
+                            <th>Nearshore</th>
+                            <th>Grand Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                             
+                        <tr>
+                            <td>2017 - 01</td>
+                            <td>4,76,762.00</td>
+                            <td>6,72,822.50</td>
+                            <td>2,49,645.00</td>
+                            <td>13,99,229.50</td>
+                        </tr>
+                        <tr>
+                                <td>2017 - 02</td>	<td>4,40,956.00</td>	<td>6,73,631.60</td>	<td>1,97,607.75</td>	<td>13,12,195.35</td>
+                                </tr>
+                                <tr><td>2017 - 03</td>	<td>5,32,695.50</td>	<td>7,61,560.00</td>	<td>2,18,795.75</td>	<td>15,13,051.25</td></tr>
+                                <tr><td>2017 - 04</td>	<td>4,56,392.50</td>	<td>6,78,853.75</td>	<td>1,69,262.25</td>	<td>13,04,508.50</td></tr>
+                                <tr><td>2017 - 05</td>	<td>5,29,422.00</td>	<td>8,41,161.75</td>	<td>2,26,120.00</td>	<td>15,96,703.75</td></tr>
+                                <tr><td>2017 - 06</td>	<td>5,26,402.00</td>	<td>8,50,514.00</td>	<td>2,14,926.75</td>	<td>15,91,842.75</td></tr>
+                                <tr><td>2017 - 07</td>	<td>4,71,625.00</td>	<td>7,97,292.31</td>	<td>1,97,707.50</td>	<td>14,66,624.81</td></tr>
+                                <tr><td>2017 - 08</td>	<td>5,19,473.00</td>	<td>8,19,796.50</td>	<td>2,14,541.25</td>	<td>15,53,810.75</td></tr>
+                                <tr><td>2017 - 09</td>	<td>4,61,925.50</td>	<td>7,98,215.76</td>	<td>1,99,699.75</td>	<td>14,59,841.01</td></tr>
+                                <tr><td>2017 - 10</td>	<td>5,13,145.00</td>	<td>7,73,493.50</td>	<td>2,05,183.50</td>	<td>14,91,822.00</td></tr>
+                                <tr><td>2017 - 11</td>	<td>5,34,299.20</td>	<td>9,05,692.50</td>	<td>1,96,264.37</td>	<td>16,36,256.07</td></tr>
+                                <tr><td>2017 - 12</td>	<td>5,35,225.90</td>	<td>8,33,125.06</td>	<td>1,82,016.00</td>	<td>15,50,366.96</td></tr>
+                                <tr><td>Grand Total</td>	<td>59,98,323.60</td>	<td>94,06,159.23</td>	<td>24,71,769.87</td>	<td>1,78,76,252.70</td></tr>
+
+                                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">New Requirements</div>
+                <table class="card-body table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Project</th>
+                        <th>Skill set</th>
+                        <th>Due Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>MFPS</td>
+                        <td>Angular JS</td>
+                        <td>April end</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Found Accounting</td>
+                        <td>Sql</td>
+                        <td>Feb</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">UAF</td>
+                        <td>May</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </div>
+    
 </div>
