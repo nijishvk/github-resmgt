@@ -16,13 +16,66 @@
     <hr>
     <div class="row">
         <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Reminders!'" ></app-stat>
+             <app-stat [bgClass]="'primary'" [icon]="'fa-bell'" [count]="26" [label]="'New Reminders!'" ></app-stat>
+            
+           
         </div>
         <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New Joiners!'" ></app-stat>
+            <a href="javascript:void(0)" (click)="open(content)"><app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="4" [label]="'New Joiners!'" ></app-stat></a>
+            <ng-template #content let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                    <h4 class="modal-title">New Joiners</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                <div class="card-body table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Project</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>MFPS</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>UAF</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>Banking</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td colspan="2">Larry Bird</td>
+                            <td>Testing</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                </div>
+            </ng-template>
         </div>
         <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'success'" [icon]="'fa-shopping-cart'" [count]="2" [label]="'New Requirements!'" ></app-stat>
+            <app-stat [bgClass]="'success'" [icon]="'fa-address-book'" [count]="2" [label]="'Onboarding Progress!'" ></app-stat>
         </div>
         <div class="col-xl-3 col-lg-6">
             <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="0" [label]="'Attritions!'"></app-stat>

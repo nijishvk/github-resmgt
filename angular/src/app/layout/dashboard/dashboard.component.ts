@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-dashboard',
@@ -9,6 +10,27 @@ import { routerTransition } from '../../router.animations';
 })
 export class DashboardComponent implements OnInit {
 
+
+    closeResult: string;
+    
+
+    open(content) {
+        this.modalService.open(content).result.then((result) => {
+            this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
+            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        });
+    }
+
+    private getDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+            return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        } else {
+            return  `with: ${reason}`;
+        }
+    }
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
         responsive: true
@@ -37,7 +59,7 @@ export class DashboardComponent implements OnInit {
     };
     public barChartLabels1: string[] = [
         'Q1-2017',
-        'Q-22017',
+        'Q2-2017',
         'Q3-2017',
         'Q4-2017',
         'Q1-2018'
@@ -184,7 +206,7 @@ export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
 
-    constructor() {
+    constructor(private modalService: NgbModal) {
         this.sliders.push(
             {
                 imagePath: 'assets/images/bbh1.jpg',
@@ -223,6 +245,7 @@ export class DashboardComponent implements OnInit {
                 voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
             }
         );
+        
     }
 
     ngOnInit() {}
