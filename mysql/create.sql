@@ -290,3 +290,13 @@ CREATE TABLE `t007_poject_master` (
   CONSTRAINT `t007_poject_master_ibfk_1` FOREIGN KEY (`T004_PRJ_MNGR`) REFERENCES `t004_resource_master` (`RES_ID`),
   CONSTRAINT `t007_poject_master_ibfk_2` FOREIGN KEY (`T001_ACCT_ID`) REFERENCES `t001_account_master` (`ACCT_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `t008_chart_data` (
+  `T008_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `X_AXIS_DATA` varchar(100) NOT NULL,
+  `Y_AXIS_DATA` varchar(100) NOT NULL,
+  `DATA_ORDER` int(11) NOT NULL,
+  `CHART_TYPE` varchar(45) NOT NULL,
+  PRIMARY KEY (`T008_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='different chart data';
