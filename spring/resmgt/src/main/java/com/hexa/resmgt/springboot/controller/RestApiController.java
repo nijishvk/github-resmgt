@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.hexa.resmgt.springboot.model.ChartData;
 import com.hexa.resmgt.springboot.model.HexaDataPull;
+import com.hexa.resmgt.springboot.service.ChartDataService;
 import com.hexa.resmgt.springboot.service.HexaDataPullService;
 import com.hexa.resmgt.springboot.util.CustomErrorType;
 
@@ -30,6 +32,9 @@ public class RestApiController {
 	 
     @Autowired
     HexaDataPullService userService; //Service which will do all data retrieval/manipulation work
+    
+    @Autowired
+    ChartDataService chartDataService;
  
     // -------------------Retrieve All Users---------------------------------------------
  
@@ -58,6 +63,12 @@ public class RestApiController {
                     + " not found"), HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<HexaDataPull>(user, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value ="/attrition",method = RequestMethod.GET)
+    public ResponseEntity<List<ChartData>> getAttritionCharData(){
+    	List<ChartData> data = chartDataService.getChartDataByType("ATTR");
+    	return new ResponseEntity<List<ChartData>>(data,HttpStatus.OK);
     }
 
 }

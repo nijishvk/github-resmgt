@@ -11,10 +11,38 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>#</th>
-                                <th>First</th>
-                                <th>Last Name</th>
-                                <th>project</th>
+                                <th>Month</th>
+                                <th>Overall Billable Consultants</th>
+                                <th>Overall Attrition</th>
+                                <th>% Overall Attrition</th>
+                                <th>Staff Aug Billable Count</th>
+                                <th>Staff Aug Attrition</th>
+                                <th>% Staff Aug Attrition</th>
+                                <th>COE Billable Count</th>
+                                <th>COE Attrition</th>
+                                <th>% COE Attrition</th>
+                                <th>Outcome Billable Count</th>
+                                <th>Outcome Based Attrition</th>
+                                <th>% Outcome Attrition</th>
+                                <th>SD Billable Count</th>
+                                <th>SD Attrition</th>
+                                <th>% SD Attrition</th>
+                                <th>Critical Consultants</th>
+                                <th>Critical Attrition</th>
+                                <th>%Critical Attrition</th>
+                                <th>Staff Aug Billable Count</th>
+                                <th>Staff Aug Attrition</th>
+                                <th>% Staff Aug Attrition</th>
+                                <th>COE Billable Count</th>
+                                <th>COE Attrition</th>
+                                <th>% COE Attrition</th>
+                                <th>Outcome Billable Count</th>
+                                <th>Outcome Based Attrition</th>
+                                <th>% Outcome Attrition</th>
+                                <th>SD Billable Count</th>
+                                <th>SD Attrition</th>
+                                <th>% SD Attrition</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -23,6 +51,35 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
                             </tr>
                             
                             </tbody>
@@ -31,4 +88,48 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-3">
+                <div class="card-header">Attrition - Overall Summary (Projectwise)</div>
+                    <div class="card-body table-responsive">
+                            <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Project Name</th>
+                                        <th>Billable Consultants</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr >
+                                        <td></td>
+                                        <td></td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col col-sm-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Attrition % (Overall)
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+                        
+
+
 </div>

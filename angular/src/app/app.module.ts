@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { TableService } from './layout/tables/tables.service';
+import { AttritionService } from './layout/kpi/attrition/attrition.service';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -34,7 +35,7 @@ export function createTranslateLoader(http: HttpClient) {
         AppRoutingModule
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard,TableService],
+    providers: [AuthGuard,TableService,AttritionService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
